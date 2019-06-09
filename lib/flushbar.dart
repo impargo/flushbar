@@ -203,8 +203,6 @@ class _FlushbarState<K extends Object> extends State<Flushbar> with TickerProvid
   bool _isTitlePresent;
   double _messageTopMargin;
 
-  FocusScopeNode _focusNode;
-  FocusAttachment _focusAttachment;
 
   @override
   void initState() {
@@ -224,8 +222,6 @@ class _FlushbarState<K extends Object> extends State<Flushbar> with TickerProvid
       _fadeController?.forward();
     }
 
-    _focusNode = FocusScopeNode();
-    _focusAttachment = _focusNode.attach(context);
   }
 
   @override
@@ -235,8 +231,6 @@ class _FlushbarState<K extends Object> extends State<Flushbar> with TickerProvid
     widget.progressIndicatorController?.removeListener(_progressListener);
     widget.progressIndicatorController?.dispose();
 
-    _focusAttachment.detach();
-    _focusNode.dispose();
     super.dispose();
   }
 
@@ -310,26 +304,7 @@ class _FlushbarState<K extends Object> extends State<Flushbar> with TickerProvid
   }
 
   Widget _getFlushbar() {
-    return (widget.userInputForm != null) ? _generateInputFlushbar() : _generateFlushbar();
-  }
-
-  Widget _generateInputFlushbar() {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: widget.backgroundColor,
-        gradient: widget.backgroundGradient,
-        boxShadow: widget.boxShadows,
-        borderRadius: BorderRadius.circular(widget.borderRadius),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0, top: 16.0),
-        child: FocusScope(
-          child: widget.userInputForm,
-          node: _focusNode,
-          autofocus: true,
-        ),
-      ),
-    );
+    return _generateFlushbar();
   }
 
   CurvedAnimation _progressAnimation;
