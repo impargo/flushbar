@@ -1,13 +1,55 @@
+## [1.10.2] - 2020-07-05
+- Fixes SDK version
+
+## [1.10.1] - 2020-07-05
+- With FLutter's 1.17 release, Flushbar 1.10 is now compatible with stable channel
+
+## [1.10.0] - 2020-25-03
+- **Breaking change** fixes a breaking change introduced by Flutter. Only use this version if you are using flutter v1.15 or greater (currently on the beta channel)
+- **Breaking change** adds blockBackgroundInteraction property.
+- **Breaking change** overlayBlur renamed to routeBlur. Will be ignored if blockBackgroundInteraction is false
+- **Breaking change** overlayColor renamed to routeColor. Will be ignored if blockBackgroundInteraction is false
+- Now, if [showProgressIndicator] is true and [progressIndicatorController] is null, an infinite linear progress indicator will be shown
+- Performance improvements
+- Code refactoring
+
+## [1.9.1] - 2019-21-10
+- Fixed shadows not showing up
+
+## [1.9.0] - 2019-01-09
+- Added `maxWidth` property
+- Added `barBlur` which applies a BackdropFilter only to Flushbar's background
+- Default animation curve changed from `fastOutSlowIn` to `easeOutCirc`
+
+## [1.8.2] - 2019-02-08
+- Blur overlay is now dismissible by click if `isDismissible == true`
+- Blur overlay will now animate until it disappears instead of vanishing
+
+## [1.8.1] - 2019-29-07
+- Removed context requirement from flushbar_route
+- Fix onTap requiring a return value
+
+## [1.8.0] - 2019-17-07
+- **Breaking Change** renamed `aroundPadding` to `margin`
+- Flushbar now supports uniform borders (same border on all sides)
+- Added `borderColor` property
+- Added `borderWidth` property
+- Added `padding` property - default still complies with material design specs
+
+## [1.7.1+1] - 2019-10-07
+- Fixed environment variables
+
+## [1.7.1] - 2019-10-07
+- Changed file docs to comply with dartdoc directives
+- Flutter minimum version for Flushbar is now 1.7.8
+- With Flutter version 1.7.8 hitting stable, there is no version restriction for stable channel users anymore
+
 ## [1.7.0] - 2019-05-06
 - add onTap property
 - fix exception caused by user dismissal while flushbar is appearing or hiding
 
 ## [1.6.0] - 2019-31-05
 - **breaking change** this fixes `The method 'detach' isn't defined for the class 'FocusScopeNode'`
-- To use this version you will need Flutter 1.6, which in currently in the beta channel
-- If you need to use Flutter Stable channel, stay in version 1.5.3 (install it using `flushbar: '1.5.3'`) 
-while flutter 1.6 is in beta.
-- Package health score suffered a hit because it uses Flutter stable channel. It will go back to normal once 1.6 is released
 
 ## [1.5.3] - 2019-27-05
 - update README file
